@@ -12,13 +12,13 @@ const Dropdown = ({isOpen, handleClick}) => {
       </div>
       <div className="dropdown-container">
         <ul className="dropdown-menu">
-          <ScrollLink to="home" className="dropdown-link">
+          <ScrollLink to="home" className="dropdown-link" onClick={handleClick}>
             Home
           </ScrollLink>
-          <ScrollLink to="about" className="dropdown-link">
+          <ScrollLink to="about" className="dropdown-link" onClick={handleClick}>
             About
           </ScrollLink>
-          <ScrollLink to="contact" className="dropdown-link">
+          <ScrollLink to="contact" className="dropdown-link" onClick={handleClick}>
             Contact
           </ScrollLink>
         </ul>

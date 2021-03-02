@@ -4,18 +4,18 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Link as ScrollLink} from 'react-scroll';
 import { FaBars } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({handleClick}) => {
   return (
     <>
     <nav className="nav">
       <div className="navbar-container">
         <RouterLink to="/" className="navbar-logo">piggybank</RouterLink>
-        <div className="navbar-icon">
+        <div className="navbar-icon" onClick={handleClick}>
           <FaBars />
         </div>
         <ul className="navbar-menu">
           <li className="navbar-item">
-            <ScrollLink className="navbar-links" to="/">
+            <ScrollLink className="navbar-links" to="home">
               Home
             </ScrollLink>
           </li>

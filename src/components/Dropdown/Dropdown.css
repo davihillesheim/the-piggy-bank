@@ -32,7 +32,7 @@
 }
 
 .dropdown-container {
-  color: aquamarine;
+  color: white;
 }
 
 .dropdown-menu {
@@ -50,12 +50,12 @@
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
-  color: blueviolet;
+  color: white;
   cursor: pointer;
 }
 
 .dropdown-link:hover {
-  color: brown;
+  color: #4f7ec4;
   transition: 0.2s ease-in-out;
 }
 
@@ -66,10 +66,10 @@
 
 .signin-link {
   border-radius: 50px;
-  background: blue;
+  background: white;
   white-space: nowrap;
   padding: 16px 64px;
-  color: orange;
+  color: #4f7ec4;
   font-size: 16px;
   outline: none;
   border: none;
@@ -80,8 +80,8 @@
 
 .signin-link:hover {
   transition: all 0.2s ease-in-out;
-  background: white;
-  color: olivedrab;
+  background: #4f7ec4;
+  color: white;
 }
 
 @media screen and (max-width: 480px) {

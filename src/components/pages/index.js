@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Dropdown from '../Dropdown';
+import Hero from '../Hero';
 import Navbar from '../Navbar';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
     <Router>
       <Dropdown  isOpen={isOpen} handleClick={handleClick}/>
       <Navbar handleClick={handleClick}/>
+      <Hero />
     </Router>
   )
 }

@@ -59,7 +59,7 @@
 }
 
 .navbar-links:active {
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #4f7ec4;
 }
 
 .signin-button {

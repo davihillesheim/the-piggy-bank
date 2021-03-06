@@ -1,7 +1,6 @@
 import React from 'react';
 import './Hero.css';
 import { Link as ScrollLink } from 'react-scroll';
-import { MdArrowForward } from 'react-icons/md';
 import Video from '../../videos/background_video.mp4';
 
 const Hero = () => {
@@ -15,7 +14,7 @@ const Hero = () => {
         <p className="hero-paragraph">Sign up and explore our features!</p>
       <div className="hero-button-container">
         <ScrollLink className="hero-button" to="signup">
-          Get started! <MdArrowForward className="arrow"/>
+          Get started!
         </ScrollLink>
       </div>
       </div>

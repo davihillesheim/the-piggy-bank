@@ -9,8 +9,6 @@
   z-index: 1;
 }
 
-/* Add :before styles for hero */
-
 .hero-background {
   position: absolute;
   top: 0;
@@ -64,7 +62,7 @@
 }
 
 .hero-button {
-  border-radius: 50px;
+  border-radius: 10px;
   background: #4f7ec4;
   white-space: nowrap;
   padding: 16px 50px;

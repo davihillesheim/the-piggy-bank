@@ -4,6 +4,7 @@ import Section from '../Section';
 import Dropdown from '../Dropdown';
 import Hero from '../Hero';
 import Navbar from '../Navbar';
+import Features from '../Features';
 import { firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Section {...firstSection} />
       <Section {...secondtSection} />
       <Section {...thirdSection} />
+      <Features />
     </Router>
   )
 }

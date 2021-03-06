@@ -1,7 +1,6 @@
 .nav {
   background: #000;
   height: 80px;
-  /* margin-top: -80; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +67,7 @@
 }
 
 .signin-link {
-  border-radius: 50px;
+  border-radius: 10px;
   background: #4f7ec4;
   white-space: nowrap;
   padding: 10px 22px;

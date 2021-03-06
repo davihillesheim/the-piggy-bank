@@ -15,7 +15,13 @@ const Navbar = ({handleClick}) => {
         </div>
         <ul className="navbar-menu">
           <li className="navbar-item">
-            <ScrollLink className="navbar-links" to="home">
+            <ScrollLink className="navbar-links" 
+            to="home" 
+            smooth={true}       
+            duration={500} 
+            spy={true} 
+            exact="true"
+            offset={-80}>
               Home
             </ScrollLink>
           </li>

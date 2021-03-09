@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import { Link as ScrollLink } from 'react-scroll';
-import Video from '../../videos/background_video.mp4';
+import Video from '../../assets/background_video.mp4';
 
 const Hero = () => {
   return (

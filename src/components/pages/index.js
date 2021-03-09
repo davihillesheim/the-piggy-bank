@@ -5,7 +5,8 @@ import Dropdown from '../Dropdown';
 import Hero from '../Hero';
 import Navbar from '../Navbar';
 import Features from '../Features';
-import { firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
+import { hero, firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
+import Footer from '../Footer';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +18,13 @@ const Home = () => {
     <Router>
       <Dropdown  isOpen={isOpen} handleClick={handleClick}/>
       <Navbar handleClick={handleClick}/>
-      <Hero />
+      {/* <Hero /> */}
+      <Section {...hero} />
       <Section {...firstSection} />
       <Section {...secondtSection} />
       <Section {...thirdSection} />
       <Features />
+      <Footer />
     </Router>
   )
 }

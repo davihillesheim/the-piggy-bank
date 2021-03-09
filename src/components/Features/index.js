@@ -1,11 +1,11 @@
 import React from "react";
 import "./Features.css";
 import Card from "./Card";
-import detailed_expenses from '../../images/detailed_expenses.svg'
-import graphs from '../../images/graphs.svg';
-import mobile from '../../images/mobile.svg';
-import easy_interface from '../../images/easy_interface.svg';
-import budget from '../../images/budget.svg';
+import detailed_expenses from '../../assets/detailed_expenses.svg'
+import graphs from '../../assets/graphs.svg';
+import mobile from '../../assets/mobile.svg';
+import easy_interface from '../../assets/easy_interface.svg';
+import budget from '../../assets/budget.svg';
 
 const Features = () => {
   return (

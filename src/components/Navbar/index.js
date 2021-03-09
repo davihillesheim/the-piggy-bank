@@ -6,7 +6,7 @@ import { FaBars } from "react-icons/fa";
 
 const Navbar = ({ handleClick }) => {
   return (
-    <header>
+    <>
       <nav className="nav">
         <div className="navbar-container">
           <RouterLink to="/" className="navbar-logo">
@@ -30,7 +30,14 @@ const Navbar = ({ handleClick }) => {
               </ScrollLink>
             </li>
             <li className="navbar-item">
-              <ScrollLink className="navbar-links" to="about">
+              <ScrollLink
+                className="navbar-links"
+                to="about"
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-80}
+              >
                 About
               </ScrollLink>
             </li>
@@ -47,7 +54,7 @@ const Navbar = ({ handleClick }) => {
           </nav>
         </div>
       </nav>
-    </header>
+    </>
   );
 };
 

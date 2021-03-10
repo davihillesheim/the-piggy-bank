@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import Section from '../Section';
 import Dropdown from '../Dropdown';
-import Hero from '../Hero';
 import Navbar from '../Navbar';
 import Features from '../Features';
 import { hero, firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
@@ -15,17 +13,16 @@ const Home = () => {
   }
 
   return (
-    <Router>
+    <>
       <Dropdown  isOpen={isOpen} handleClick={handleClick}/>
       <Navbar handleClick={handleClick}/>
-      {/* <Hero /> */}
       <Section {...hero} />
       <Section {...firstSection} />
       <Section {...secondtSection} />
       <Section {...thirdSection} />
       <Features />
       <Footer />
-    </Router>
+    </>
   )
 }
 

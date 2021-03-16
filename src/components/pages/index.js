@@ -16,11 +16,13 @@ const Home = () => {
     <>
       <Dropdown  isOpen={isOpen} handleClick={handleClick}/>
       <Navbar handleClick={handleClick}/>
-      <Section {...hero} />
-      <Section {...firstSection} />
-      <Section {...secondtSection} />
-      <Section {...thirdSection} />
-      <Features />
+      <main>
+        <Section {...hero} />
+        <Section {...firstSection} />
+        <Section {...secondtSection} />
+        <Section {...thirdSection} />
+      </main>
+      {/* <Features /> */}
       <Footer />
     </>
   )

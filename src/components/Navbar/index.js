@@ -42,9 +42,9 @@ const Navbar = ({ handleClick }) => {
               </ScrollLink>
             </li>
             <li className="navbar-item">
-              <ScrollLink className="navbar-links" to="contact">
+              <RouterLink className="navbar-links" to="/contact">
                 Contact
-              </ScrollLink>
+              </RouterLink>
             </li>
           </ul>
           <nav className="signin-button">

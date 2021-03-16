@@ -1,0 +1,78 @@
+.contact {
+  color: white;
+  background: black;
+  height: auto;
+}
+
+.contact-container {
+  display: grid;
+  z-index: 1;
+  height: auto;
+  width: 100%;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 24px;
+  justify-content: center;
+}
+
+.contact-header {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.contact-row {
+  display: grid;
+  grid-auto-columns: minmax(auto, 1fr);
+  align-items: center;
+  grid-template-areas: "col1 col2";
+  margin-top: 80px;
+  grid-column-gap: 125px;
+  /* grid-template-areas: ;  function to alternate between col2 col1 and col1 col2*/
+}
+
+.contact-form-container {
+  max-width: 600px;
+  padding-top: 0;
+  padding-bottom: 60px;
+}
+
+.contact-column-1 {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  grid-area: col1;
+}
+
+.contact-column-2 {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  grid-area: col2;
+}
+
+.image-container {
+  max-width: 560px;
+  height: 100%;
+}
+
+.image {
+  width: 120%;
+  margin: 0 0 10px 0;
+  padding-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    padding: 100px 0;
+  }
+
+  .contact-row {
+    grid-template-areas: "col1 col1" "col2 col2";
+    grid-gap: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image {
+    height: 70%;
+  }
+}

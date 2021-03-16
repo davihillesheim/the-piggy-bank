@@ -26,6 +26,7 @@
   align-items: center;
   grid-template-areas: "col1 col2";
   margin-top: 80px;
+  grid-column-gap: 125px;
   /* grid-template-areas: ;  function to alternate between col2 col1 and col1 col2*/
 }
 
@@ -52,7 +53,7 @@
 }
 
 .headline {
-  color: blue;
+  color: #33dded;
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -96,14 +97,14 @@
 }
 
 .image {
-  width: 100%;
+  width: 120%;
   margin: 0 0 10px 0;
   padding-right: 0;
 }
 
 .button {
   border-radius: 10px;
-  background: #4f7ec4;
+  background: #593959;
   white-space: nowrap;
   padding: 16px 50px;
   color: white;
@@ -124,7 +125,7 @@
 .button:hover {
   transition: all 0.2s ease-in-out;
   background: white;
-  color: #4f7ec4;
+  color: #33dded;
 }
 
 @media screen and (max-width: 768px) {
@@ -134,6 +135,7 @@
 
   .section-row {
     grid-template-areas: "col1 col1" "col2 col2";
+    grid-gap: 0;
   }
 
   .section-row.img-first {

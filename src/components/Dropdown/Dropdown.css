@@ -55,7 +55,7 @@
 }
 
 .dropdown-link:hover {
-  color: #4f7ec4;
+  color: #33dded;
   transition: 0.2s ease-in-out;
 }
 
@@ -69,7 +69,7 @@
   background: white;
   white-space: nowrap;
   padding: 16px 64px;
-  color: #4f7ec4;
+  color: #593959;
   font-size: 16px;
   outline: none;
   border: none;
@@ -80,7 +80,7 @@
 
 .signin-link:hover {
   transition: all 0.2s ease-in-out;
-  background: #4f7ec4;
+  background: #33dded;
   color: white;
 }
 

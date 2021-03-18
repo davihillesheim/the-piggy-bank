@@ -1,4 +1,4 @@
-.section-text-container {
+.contact-container {
   max-width: 900px;
   padding-top: 0;
   padding-bottom: 60px;
@@ -13,10 +13,8 @@
 
 .contact-content {
   height: 100%;
-  width: 550px;
   display: flex;
   flex-direction: column;
-  justify-content: top;
 }
 
 .contact-form {
@@ -55,6 +53,16 @@
   border: none;
   border-radius: 4px;
   height: 200px;
+}
+
+.form-button {
+  background: #24285b;
+  padding: 16px 0;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

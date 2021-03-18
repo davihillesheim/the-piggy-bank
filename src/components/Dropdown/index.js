@@ -1,33 +1,59 @@
-import React from 'react';
-import './Dropdown.css';
-import { FaTimes } from 'react-icons/fa';
-import { Link as RouterLink } from 'react-router-dom';
-import { Link as ScrollLink} from 'react-scroll';
+import React from "react";
+import "./Dropdown.css";
+import { FaTimes } from "react-icons/fa";
+import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
-const Dropdown = ({isOpen, handleClick}) => {
+const Dropdown = ({ isOpen, handleClick }) => {
   return (
-    <aside className={isOpen ? "dropdown active" : "dropdown"}  onClick={handleClick}>
+    <aside
+      className={isOpen ? "dropdown active" : "dropdown"}
+      onClick={handleClick}
+    >
       <div className="icon" onClick={handleClick}>
-        <FaTimes className="close-icon"/>
+        <FaTimes className="close-icon" />
       </div>
       <div className="dropdown-container">
         <ul className="dropdown-menu">
-          <ScrollLink to="home" className="dropdown-link" onClick={handleClick}>
+          <ScrollLink
+            to="home"
+            className="dropdown-link"
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-80}
+            onClick={handleClick}
+          >
             Home
           </ScrollLink>
-          <ScrollLink to="about" className="dropdown-link" onClick={handleClick}>
+          <ScrollLink
+            to="about"
+            className="dropdown-link"
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-80}
+            onClick={handleClick}
+          >
             About
           </ScrollLink>
-          <ScrollLink to="contact" className="dropdown-link" onClick={handleClick}>
+          <RouterLink
+            to="contact"
+            className="dropdown-link"
+            onClick={handleClick}
+          >
             Contact
-          </ScrollLink>
+          </RouterLink>
         </ul>
         <div className="dropdown-signin">
-          <RouterLink to="/signin" className="signin-link"> Sign In</RouterLink>
+          <RouterLink to="/signin" className="signin-link">
+            {" "}
+            Sign In
+          </RouterLink>
         </div>
       </div>
     </aside>
-  )
-}
+  );
+};
 
 export default Dropdown;

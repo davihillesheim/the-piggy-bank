@@ -13,7 +13,6 @@
   z-index: 1;
   height: 800px;
   width: 100%;
-  max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
@@ -26,7 +25,8 @@
   align-items: center;
   grid-template-areas: "col1 col2";
   margin-top: 80px;
-  grid-column-gap: 125px;
+  max-width: 1300px;
+  /* grid-column-gap: 125px; */
   /* grid-template-areas: ;  function to alternate between col2 col1 and col1 col2*/
 }
 
@@ -97,14 +97,15 @@
 }
 
 .image {
-  width: 120%;
+  width: 100%;
   margin: 0 0 10px 0;
   padding-right: 0;
+  display: block;
 }
 
 .button {
   border-radius: 10px;
-  background: #593959;
+  background: #24285b;
   white-space: nowrap;
   padding: 16px 50px;
   color: white;
@@ -125,7 +126,7 @@
 .button:hover {
   transition: all 0.2s ease-in-out;
   background: white;
-  color: #33dded;
+  color: #24285b;
 }
 
 @media screen and (max-width: 768px) {

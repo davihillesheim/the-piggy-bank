@@ -5,8 +5,10 @@ import './Section.css';
 const Section = ({id, lightBackground, imgFirst, headline, title, subtitle, button, img, alt, primary}) => {
   return (
     <>
+    {/* changes the color of the background according to the value of the prop 'lightBackground' */}
     <div className={ lightBackground ? "section light" : "section" }  id={id}>
         <div className="section-container">
+          {/* defines if it is the image or the text first on the section according to the prop 'imgFirst' */}
           <div className={ imgFirst ? "section-row img-first" : "section-row" }>
             <div className="section-column-1">
               <div className="section-text-container">

@@ -1,21 +1,25 @@
 import React from 'react';
 import ContactForm from '../ContactForm';
 import './Contact.css';
-import Save from '../../assets/save.svg';
+import registerExpenses from '../../assets/register_expenses.svg';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
     <>
     <div className="contact">
+      <header className="contact-header">
+        <Link className="contact-logo" to="/">piggybank</Link>
+      </header>
         <div className="contact-container">
-          <h1 className="contact-header">Contact Us</h1>
+          <h1 className="contact-h1">Contact Us</h1>
           <div className="contact-row">
             <div className="contact-column-1">
               <ContactForm />
             </div>
             <div className="contact-column-2">
-              <div className="image-container">
-                <img className="image" src={Save} alt=""/>
+              <div className="contact-image-container">
+                <img className="contact-image" src={registerExpenses} alt=""/>
               </div>
             </div>
           </div>

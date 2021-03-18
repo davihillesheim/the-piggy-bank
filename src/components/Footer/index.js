@@ -10,20 +10,26 @@ const Footer = () => {
         <div className="links-container">
           <div className="footer-links">
             <h1 className="link-title">About</h1>
-            <LinkRouter className="footer-link" to="/">
+            <LinkScroll
+              className="footer-link"
+              to="about"
+              offset={-80}
+              smooth={true}
+              duration={500}
+            >
               About Us
-            </LinkRouter>
-            <LinkRouter className="footer-link" to="/">
-              F.A.Q.
-            </LinkRouter>
-            <LinkRouter className="footer-link" to="/">
-              Our features
-            </LinkRouter>
+            </LinkScroll>
           </div>
           <div className="footer-links">
             <h1 className="link-title">Contact</h1>
-            <LinkRouter className="footer-link" to="/">
+            <LinkRouter className="footer-link" to="/contact">
               Contact Us
+            </LinkRouter>
+          </div>
+          <div className="footer-links">
+            <h1 className="link-title">Get Started</h1>
+            <LinkRouter className="footer-link" to="/signin">
+              Sign In
             </LinkRouter>
           </div>
         </div>
@@ -38,9 +44,9 @@ const Footer = () => {
             >
               piggybank
             </LinkScroll>
-            <small className="rights">
+            <p className="rights">
               UP2039551 © {new Date().getFullYear()} All rights reserved.
-            </small>
+            </p>
           </div>
         </div>
       </div>

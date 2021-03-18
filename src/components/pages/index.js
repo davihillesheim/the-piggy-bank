@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Section from '../Section';
 import Dropdown from '../Dropdown';
 import Navbar from '../Navbar';
-import Features from '../Features';
 import { hero, firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
 import Footer from '../Footer';
 
@@ -22,7 +21,6 @@ const Home = () => {
         <Section {...secondtSection} />
         <Section {...thirdSection} />
       </main>
-      {/* <Features /> */}
       <Footer />
     </>
   )

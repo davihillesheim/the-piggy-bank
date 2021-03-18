@@ -2,7 +2,6 @@ import heroImg from '../../assets/hero_img.svg';
 import comprehensiveGraphs from '../../assets/comprehensive_graphs.svg';
 import mobile from '../../assets/mobile.svg';
 import registerExpenses from '../../assets/register_expenses.svg';
-import save from '../../assets/save.svg';
 
 export const hero = {
   id: 'home',

@@ -4,6 +4,7 @@ import Dropdown from '../Dropdown';
 import Navbar from '../Navbar';
 import { hero, firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
 import Footer from '../Footer';
+import Contact from '../Contact';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ const Home = () => {
         <Section {...firstSection} />
         <Section {...secondtSection} />
         <Section {...thirdSection} />
+        <Contact />
       </main>
       <Footer />
     </>

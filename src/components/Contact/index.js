@@ -2,15 +2,11 @@ import React from 'react';
 import ContactForm from '../ContactForm';
 import './Contact.css';
 import registerExpenses from '../../assets/register_expenses.svg';
-import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
     <>
-    <div className="contact">
-      <header className="contact-header">
-        <Link className="contact-logo" to="/">piggybank</Link>
-      </header>
+    <div className="contact" id="contact">
         <div className="contact-container">
           <h1 className="contact-h1">Contact Us</h1>
           <div className="contact-row">

@@ -42,9 +42,16 @@ const Navbar = ({ handleClick }) => {
               </ScrollLink>
             </li>
             <li className="navbar-item">
-              <RouterLink className="navbar-links" to="/contact">
+            <ScrollLink
+                className="navbar-links"
+                to="contact"
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-80}
+              >
                 Contact
-              </RouterLink>
+              </ScrollLink>
             </li>
           </ul>
           <nav className="signin-button">

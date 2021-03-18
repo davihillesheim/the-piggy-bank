@@ -22,9 +22,15 @@ const Footer = () => {
           </div>
           <div className="footer-links">
             <h1 className="link-title">Contact</h1>
-            <LinkRouter className="footer-link" to="/contact">
+            <LinkScroll
+              className="footer-link"
+              to="contact"
+              offset={-80}
+              smooth={true}
+              duration={500}
+            >
               Contact Us
-            </LinkRouter>
+            </LinkScroll>
           </div>
           <div className="footer-links">
             <h1 className="link-title">Get Started</h1>

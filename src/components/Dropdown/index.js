@@ -37,13 +37,17 @@ const Dropdown = ({ isOpen, handleClick }) => {
           >
             About
           </ScrollLink>
-          <RouterLink
+          <ScrollLink
             to="contact"
             className="dropdown-link"
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-80}
             onClick={handleClick}
           >
             Contact
-          </RouterLink>
+          </ScrollLink>
         </ul>
         <div className="dropdown-signin">
           <RouterLink to="/signin" className="signin-link">

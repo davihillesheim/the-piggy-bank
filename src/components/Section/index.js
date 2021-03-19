@@ -17,7 +17,7 @@ const Section = ({id, lightBackground, imgFirst, headline, title, subtitle, butt
                 <p className={lightBackground ? "subtitle light" : "subtitle"}>{subtitle}</p>
                 <div className="button-container">
                   <ScrollLink className={(button != null) ? "button" : "button hidden"}
-                  to="home"
+                  to="about"
                   smooth={true} 
                   duration={500} 
                   spy={true} 

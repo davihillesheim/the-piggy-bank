@@ -84,11 +84,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  /* rearrange the elements to become a column in smaller devices */
   .links-container {
     padding-top: 30px;
     flex-direction: column;
   }
-
   .copyright-container {
     flex-direction: column;
   }

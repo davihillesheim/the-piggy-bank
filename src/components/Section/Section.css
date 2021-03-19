@@ -26,8 +26,6 @@
   grid-template-areas: "col1 col2";
   margin-top: 80px;
   max-width: 1300px;
-  /* grid-column-gap: 125px; */
-  /* grid-template-areas: ;  function to alternate between col2 col1 and col1 col2*/
 }
 
 .section-row.img-first {

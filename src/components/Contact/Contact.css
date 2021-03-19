@@ -43,7 +43,6 @@
   grid-template-areas: "col1 col2";
   margin-top: 80px;
   grid-column-gap: 125px;
-  /* grid-template-areas: ;  function to alternate between col2 col1 and col1 col2*/
 }
 
 .contact-form-container {

@@ -36,6 +36,7 @@
   display: none;
 }
 
+/* contains the links to Home, About and Contact */
 .navbar-menu {
   display: flex;
   align-items: center;
@@ -43,10 +44,12 @@
   text-align: center;
 }
 
+/* li containing the link  */
 .navbar-item {
   height: 80px;
 }
 
+/* effective Link to the sections */
 .navbar-links {
   color: #fff;
   display: flex;

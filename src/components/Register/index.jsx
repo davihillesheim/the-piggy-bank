@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./Signin.css";
+import "../Signin/Signin.css";
 
-const Signin = () => {
+const Register = () => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const history = useHistory();
+
+  const onChangeName = event => {
+    setName(event.target.value);
+  }
 
   const onChangeEmail = event => {
     setEmail(event.target.value);
@@ -14,25 +19,6 @@ const Signin = () => {
 
   const onChangePassword = event => {
     setPassword(event.target.value);
-  }
-
-  const onSubmitSignin = () => {
-    fetch('http://localhost:3001/signin', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data === 'success') {
-        history.push("/");
-      } else {
-        console.log('didn\'t work');
-      }
-    })
   }
 
   return (
@@ -45,7 +31,11 @@ const Signin = () => {
         </header>
         <div className="form-content">
           <form className="form">
-            <h1 className="form-header">Sign In</h1>
+            <h1 className="form-header">Create your account</h1>
+            <label className="form-label" htmlFor="for">
+              Name
+            </label>
+            <input className="form-input" type="text" required value={name} onChange={onChangeName}/>
             <label className="form-label" htmlFor="for">
               Email
             </label>
@@ -54,10 +44,10 @@ const Signin = () => {
               Password
             </label>
             <input className="form-input" type="password" required value={password} onChange={onChangePassword}/>
-            <button className="form-button" type="button" onClick={onSubmitSignin}>
-              Login
+            <button className="form-button" type="button">
+              Register
             </button>
-            <Link to="/register" className="form-text">Register</Link>
+            <Link to="/signin" className="form-text">Already have an account? Log in!</Link>
           </form>
         </div>
       </div>
@@ -65,4 +55,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Register;

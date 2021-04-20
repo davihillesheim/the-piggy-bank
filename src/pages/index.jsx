@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Section from '../Section';
-import Dropdown from '../Dropdown';
-import Navbar from '../Navbar';
-import { hero, firstSection, secondtSection, thirdSection } from '../Section/Contents.js';
-import Footer from '../Footer';
-import Contact from '../Contact';
+import Section from '../components/Section';
+import Dropdown from '../components/Dropdown';
+import Navbar from '../components/Navbar';
+import { hero, firstSection, secondtSection, thirdSection } from '../components/Section/Contents.js';
+import Footer from '../components/Footer';
+import Contact from '../components/Contact';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);

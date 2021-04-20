@@ -21,6 +21,26 @@ const Register = () => {
     setPassword(event.target.value);
   }
 
+  const onSubmitRegister = () => {
+    fetch('http://localhost:3001/register', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+      })
+    })
+    .then(response => response.json())
+    .then(user => {
+      if (user === 'success') {
+        history.push("/");
+      } else {
+        console.log('didn\'t work');
+      }
+    })
+  }
+
   return (
     <div className="signin-container">
       <div className="form-container">
@@ -44,7 +64,7 @@ const Register = () => {
               Password
             </label>
             <input className="form-input" type="password" required value={password} onChange={onChangePassword}/>
-            <button className="form-button" type="button">
+            <button className="form-button" type="button" onSubmit={onSubmitRegister}>
               Register
             </button>
             <Link to="/signin" className="form-text">Already have an account? Log in!</Link>

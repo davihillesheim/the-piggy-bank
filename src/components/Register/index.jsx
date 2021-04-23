@@ -33,7 +33,7 @@ const Register = () => {
     })
     .then(response => response.json())
     .then(user => {
-      if (user === 'success') {
+      if (user) {
         history.push("/");
       } else {
         console.log('didn\'t work');
@@ -64,7 +64,7 @@ const Register = () => {
               Password
             </label>
             <input className="form-input" type="password" required value={password} onChange={onChangePassword}/>
-            <button className="form-button" type="button" onSubmit={onSubmitRegister}>
+            <button className="form-button" type="button" onClick={onSubmitRegister}>
               Register
             </button>
             <Link to="/signin" className="form-text">Already have an account? Log in!</Link>

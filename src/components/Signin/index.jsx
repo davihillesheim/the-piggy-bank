@@ -26,8 +26,8 @@ const Signin = () => {
       })
     })
     .then(response => response.json())
-    .then(data => {
-      if (data === 'success') {
+    .then(user => {
+      if (user.id) {
         history.push("/");
       } else {
         console.log('didn\'t work');

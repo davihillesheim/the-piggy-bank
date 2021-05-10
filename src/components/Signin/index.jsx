@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Signin.css";
 
@@ -28,7 +28,9 @@ const Signin = () => {
     .then(response => response.json())
     .then(user => {
       if (user.id) {
-        history.push("/");
+        localStorage.setItem('loggedUser', user.id);
+        history.push("/dashboard");
+        console.log(localStorage.getItem('loggedUser'));
       } else {
         console.log('didn\'t work');
       }

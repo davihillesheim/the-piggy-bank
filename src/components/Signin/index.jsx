@@ -27,8 +27,9 @@ const Signin = () => {
     })
     .then(response => response.json())
     .then(user => {
-      if (user.id) {
-        localStorage.setItem('loggedUser', user.id);
+      const id = user.account_id
+      if (id) {
+        localStorage.setItem('loggedUser', id);
         history.push("/dashboard");
         console.log(localStorage.getItem('loggedUser'));
       } else {

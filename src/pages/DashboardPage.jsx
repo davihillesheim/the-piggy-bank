@@ -1,10 +1,9 @@
 import React from 'react'
+import Dashboard from '../components/Dashboard';
 
 const DashboardPage = () => {
   return (
-    <div>
-      <p>{`Hello, ${localStorage.getItem('loggedUser')}`}</p>
-    </div>
+    <Dashboard />
   )
 }
 

@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import DashboardMetric from '../DashboardMetric';
 
 const Dashboard = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/expenses/user', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        user_id: localStorage.getItem('loggedUser'),
+        not_before: "2021-01-12",
+	      not_after: "2021-10-13"
+      })
+    })
+    .then(response => response.json())
+    .then(data => setData(data));
+  }, [])
+
   return (
     <>
       <h1>Dashboard</h1>

@@ -7,7 +7,16 @@ import Modal from '../Modal';
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
+  const [categories, setCategories] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/categories')
+      .then(response => response.json())
+      .then(data => setCategories(data));
+  }, []);
+
+  console.log(categories);
 
   useEffect(() => {
     fetch('http://localhost:3001/expenses/user', {
@@ -35,7 +44,7 @@ const Dashboard = () => {
       <button onClick={() => setIsModalVisible(true)}>
         <FontAwesomeIcon icon={faPlusCircle} />
       </button>
-      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)}><h2>children bitch</h2></Modal>}
+      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories}><h2>children bitch</h2></Modal>}
       <div className="dashboard-content">
         <div className="expense-list">
           <p>Here will be the list</p>

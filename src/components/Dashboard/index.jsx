@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import DashboardMetric from '../DashboardMetric';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import Modal from '../Modal';
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3001/expenses/user', {
@@ -11,6 +15,7 @@ const Dashboard = () => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         user_id: localStorage.getItem('loggedUser'),
+        // will have two states for not before and not after that will be set by the user (will have the standard which is get this month and show only for this month)
         not_before: "2021-01-12",
 	      not_after: "2021-10-13"
       })
@@ -27,6 +32,10 @@ const Dashboard = () => {
         <DashboardMetric title={"Expenses"} value={"$14000,00"} />
         <DashboardMetric title={"Saved"} value={"$11000,00"} />
       </div>
+      <button onClick={() => setIsModalVisible(true)}>
+        <FontAwesomeIcon icon={faPlusCircle} />
+      </button>
+      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)}><h2>children bitch</h2></Modal>}
       <div className="dashboard-content">
         <div className="expense-list">
           <p>Here will be the list</p>

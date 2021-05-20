@@ -10,14 +10,6 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories }) => {
   const [description, setDescription] = useState('');
   const date = '2021-05-20';
 
-  useEffect(() => {
-    console.log(typeof(userId))
-    console.log(typeof(categoryId))
-    console.log(typeof(amount))
-    console.log(typeof(description))
-    console.log(typeof(date))    
-  },[])
-
   const handleOutsideClick = event => {
     if (event.target.id === id) onClose();
   }

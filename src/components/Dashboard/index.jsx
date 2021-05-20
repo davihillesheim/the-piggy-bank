@@ -4,19 +4,12 @@ import DashboardMetric from '../DashboardMetric';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../Modal';
+import ExpenseList from '../ExpenseList';
 
 const Dashboard = () => {
-  const [data, setData] = useState(null);
+  const [expenses, setExpenses] = useState(null);
   const [categories, setCategories] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  useEffect(() => {
-    fetch('http://localhost:3001/categories')
-      .then(response => response.json())
-      .then(data => setCategories(data));
-  }, []);
-
-  console.log(categories);
 
   useEffect(() => {
     fetch('http://localhost:3001/expenses/user', {
@@ -24,19 +17,26 @@ const Dashboard = () => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         user_id: localStorage.getItem('loggedUser'),
-        // will have two states for not before and not after that will be set by the user (will have the standard which is get this month and show only for this month)
-        not_before: "2021-01-12",
-	      not_after: "2021-10-13"
+        // todo change later
+        not_before: "2021-01-01",
+	      not_after: "2021-10-30"
       })
     })
     .then(response => response.json())
-    .then(data => setData(data));
+    .then(expenses => setExpenses(expenses));
   }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:3001/categories')
+      .then(response => response.json())
+      .then(data => setCategories(data));
+  }, []);
 
   return (
     <>
       <h1>Dashboard</h1>
       <div className="metrics">
+        {/* todo change it later */}
         <DashboardMetric title={"Budget"} value={"$25000,00"} />
         <DashboardMetric title={"Expenses"} value={"$14000,00"} />
         <DashboardMetric title={"Saved"} value={"$11000,00"} />
@@ -44,10 +44,10 @@ const Dashboard = () => {
       <button onClick={() => setIsModalVisible(true)}>
         <FontAwesomeIcon icon={faPlusCircle} />
       </button>
-      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories}><h2>children bitch</h2></Modal>}
+      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories}></Modal>}
       <div className="dashboard-content">
         <div className="expense-list">
-          <p>Here will be the list</p>
+          <ExpenseList expenses={expenses} categories={categories}/>
         </div>
         <div className="graph">
           <p>Here will be the chart</p>

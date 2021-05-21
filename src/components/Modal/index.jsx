@@ -1,8 +1,8 @@
 import React from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
+import { useState } from 'react/cjs/react.development';
 import './Modal.css';
 
-const Modal = ({ id = 'modal', onClose = () => { }, categories }) => {
+const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) => {
 
   const userId = Number(localStorage.getItem('loggedUser'));
   const [categoryId, setCategoryId] = useState();
@@ -39,7 +39,10 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories }) => {
       })
     }).then(response => response.json()).then(expense => {
       if(expense.user_id) {
-        console.log('Expense create successfully');
+        console.log('here comes the new expense!!!!!!!!!!!')
+        console.log(expense)
+        console.log('Expense created successfully');
+        addExpense({expense})
       } else {
         console.log('Failed to create expense');
       }
@@ -65,7 +68,12 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories }) => {
           <input type="text" required value={description} onChange={onChangeDescription}/>
         </div>
         <div className='content'></div>
-        <button className='submit-expense' onClick={() => onSubmitExpense(userId, categoryId, amount, description, date)}>Ok</button>
+        <button className='submit-expense' onClick={() => {
+          onSubmitExpense(userId, categoryId, amount, description, date)
+          }
+        }>
+          Ok
+        </button>
       </div>
     </div>
   )

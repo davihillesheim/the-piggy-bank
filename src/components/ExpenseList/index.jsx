@@ -3,16 +3,23 @@ import './ExpenseList.css';
 
 const ExpenseList = ({ expenses, categories }) => {
 
+  // if (expenses) {
+  //   console.log(expenses)
+  // } else {
+  //   console.log('fucking hell')
+  // }
+
   return (
     <ul>
-      {(expenses && categories) && expenses.map(expense =>
-        <li key={expense.id} className='expense-content'>
-          <div>
-            {categories[expense.category_id].name}
-          </div>
-          {expense.amount}
-        </li>
-      )}
+      {(expenses && categories) &&
+        expenses.map(expense =>
+          <li key={expense.id} className='expense-content'>
+            <div>
+              {expense.name}
+            </div>
+            {expense.amount}
+          </li>
+        )}
     </ul>
   )
 }

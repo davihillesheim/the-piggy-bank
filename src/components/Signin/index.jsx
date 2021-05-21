@@ -31,7 +31,6 @@ const Signin = () => {
       if (id) {
         localStorage.setItem('loggedUser', id);
         history.push("/dashboard");
-        console.log(localStorage.getItem('loggedUser'));
       } else {
         console.log('didn\'t work');
       }

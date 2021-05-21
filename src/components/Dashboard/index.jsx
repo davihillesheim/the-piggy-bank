@@ -7,7 +7,7 @@ import Modal from '../Modal';
 import ExpenseList from '../ExpenseList';
 
 const Dashboard = () => {
-  const [expenses, setExpenses] = useState(null);
+  const [expenses, setExpenses] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -23,7 +23,9 @@ const Dashboard = () => {
       })
     })
     .then(response => response.json())
-    .then(expenses => setExpenses(expenses));
+    .then(expenses => {
+      setExpenses(expenses)}
+      );
   }, [])
 
   useEffect(() => {
@@ -31,6 +33,12 @@ const Dashboard = () => {
       .then(response => response.json())
       .then(data => setCategories(data));
   }, []);
+
+  const addExpense = (({expense}) => {
+    setExpenses([...expenses, expense])
+  })
+
+  console.log(expenses)
 
   return (
     <>
@@ -44,7 +52,7 @@ const Dashboard = () => {
       <button onClick={() => setIsModalVisible(true)}>
         <FontAwesomeIcon icon={faPlusCircle} />
       </button>
-      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories}></Modal>}
+      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories} addExpense={addExpense}></Modal>}
       <div className="dashboard-content">
         <div className="expense-list">
           <ExpenseList expenses={expenses} categories={categories}/>

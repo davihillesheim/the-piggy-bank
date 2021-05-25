@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../Modal';
 import ExpenseList from '../ExpenseList';
+import Graph from '../Graph';
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -37,11 +38,9 @@ const Dashboard = () => {
   const addExpense = (({expense}) => {
     setExpenses([...expenses, expense])
   })
-
-  console.log(expenses)
-
+  
   return (
-    <>
+    <div>
       <h1>Dashboard</h1>
       <div className="metrics">
         {/* todo change it later */}
@@ -58,10 +57,10 @@ const Dashboard = () => {
           <ExpenseList expenses={expenses} categories={categories}/>
         </div>
         <div className="graph">
-          <p>Here will be the chart</p>
+          <Graph expenses={expenses}/>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

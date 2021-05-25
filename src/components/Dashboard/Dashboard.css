@@ -5,6 +5,6 @@
 
 .dashboard-content {
   display: flex;
-  flex-direction: row;
+  flex-shrink: 0;
   width: 100%;
 }

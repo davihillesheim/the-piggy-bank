@@ -8,7 +8,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
   const [categoryId, setCategoryId] = useState();
   const [amount, setAmount] = useState();
   const [description, setDescription] = useState('');
-  const date = '2021-05-20';
+  const date = '2021-04-20';
 
   const handleOutsideClick = event => {
     if (event.target.id === id) onClose();

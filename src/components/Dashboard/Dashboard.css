@@ -1,3 +1,7 @@
+.dashboard {
+  padding: 16px;
+}
+
 .metrics {
   display: flex;
   flex-direction: row;
@@ -7,4 +11,14 @@
   display: flex;
   flex-shrink: 0;
   width: 100%;
+}
+
+.expense-list {
+  width: 30%;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+.chart {
+  width: 40%;
 }

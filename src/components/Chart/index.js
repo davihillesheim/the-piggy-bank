@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Line as LineChart } from 'react-chartjs-2';
 
-const Graph = ({ expenses }) => {
+const Chart = ({ expenses }) => {
 
   const [expenseData, setExpenseData] = useState({});
 
+  const sortDate = (key) => {
+    return key.sort((a, b) => new Date(a) - new Date(b));
+  }
+
   const chartData = canvas => {
     const ctx = canvas.getContext('2d');
+    const key = Object.keys(expenseData);
     var gradientFill = ctx.createLinearGradient(
       0,
       0,
@@ -16,12 +21,12 @@ const Graph = ({ expenses }) => {
     gradientFill.addColorStop(0, 'rgba(0, 97, 215, 0.3)');
     gradientFill.addColorStop(1, 'rgba(0, 200, 255, 0)');
     return {
-      labels: Object.keys(expenseData).sort().map(date => date),
+      labels: sortDate(key).map(date => date),
       datasets: [
         {
           label: 'Expenses',
           borderColor: '#3182ce',
-          data: Object.keys(expenseData).sort().map(date => expenseData[date]),
+          data: sortDate(key).map(date => expenseData[date]),
           backgroundColor: gradientFill
         }
       ]
@@ -70,4 +75,4 @@ const Graph = ({ expenses }) => {
   )
 }
 
-export default Graph;
+export default Chart;

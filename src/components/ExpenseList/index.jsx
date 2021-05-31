@@ -3,21 +3,27 @@ import './ExpenseList.css';
 
 const ExpenseList = ({ expenses, categories }) => {
 
-  // if (expenses) {
-  //   console.log(expenses)
-  // } else {
-  //   console.log('fucking hell')
-  // }
+  const sortedExpenses = expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return (
     <ul>
       {(expenses && categories) &&
-        expenses.map(expense =>
+        sortedExpenses.map(expense =>
           <li key={expense.id} className='expense-content'>
-            <div>
-              {expense.name}
+            <div className="expense-wrap">
+              <div className="expense-title">
+                <span>
+                  {expense.date}
+                </span>
+                <span>
+                  {expense.name}
+                </span>
+              </div>
+              <div className="expense-amount">
+                <span>x</span>
+                <span>{expense.amount}</span>
+              </div>
             </div>
-            {expense.amount}
           </li>
         )}
     </ul>

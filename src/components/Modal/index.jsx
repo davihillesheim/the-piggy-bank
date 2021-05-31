@@ -1,14 +1,19 @@
-import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, {useState} from 'react';
+import DatePicker from 'react-datepicker';
 import './Modal.css';
 
 const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) => {
 
   const userId = Number(localStorage.getItem('loggedUser'));
   const [categoryId, setCategoryId] = useState();
+  const [date, setDate] = useState(new Date());
   const [amount, setAmount] = useState();
   const [description, setDescription] = useState('');
-  const date = '2021-04-20';
+
+  const handleSelectDate = date => {
+    setDate(date);
+    console.log(date);
+  }
 
   const handleOutsideClick = event => {
     if (event.target.id === id) onClose();
@@ -64,6 +69,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
         <div className='modal-input'>
           <label htmlFor="for">Amount</label>
           <input type="number" step="any" required value={amount} onChange={onChangeAmount}/>
+          <DatePicker selected={date} onChange={date => handleSelectDate(date)}/>
           <label htmlFor="for">Description(optional)</label>
           <input type="text" required value={description} onChange={onChangeDescription}/>
         </div>

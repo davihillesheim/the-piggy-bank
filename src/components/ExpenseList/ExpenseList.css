@@ -1,5 +1,25 @@
 .expense-content {
   width: 100%;
+  position: relative;
+  border-bottom: 1px solid;
+  border-color: #24285b;
+  list-style-type: none;
+}
+
+.expense-wrap {
   display: flex;
   justify-content: space-between;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.expense-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-amount {
+  display: flex;
+  flex-direction: column;
+  right: 0;
 }

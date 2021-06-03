@@ -1,5 +1,6 @@
 import React from 'react';
 import './ExpenseList.css';
+import { dayMonthYear } from '../../utils';
 
 const ExpenseList = ({ expenses, categories }) => {
 
@@ -13,7 +14,7 @@ const ExpenseList = ({ expenses, categories }) => {
             <div className="expense-wrap">
               <div className="expense-title">
                 <span>
-                  {expense.date}
+                  {dayMonthYear(expense.date)}
                 </span>
                 <span>
                   {expense.name}

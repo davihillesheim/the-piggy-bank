@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import DatePicker from 'react-datepicker';
+import CurrencyInput from 'react-currency-input-field';
 import './Modal.css';
 
 const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) => {
@@ -7,11 +8,45 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
   const userId = Number(localStorage.getItem('loggedUser'));
   const [categoryId, setCategoryId] = useState();
   const [date, setDate] = useState(new Date());
-  const [amount, setAmount] = useState();
   const [description, setDescription] = useState('');
 
+  const limit = 10000;
+  const prefix = '£';
+
+  const [errorMessage, setErrorMessage] = useState('');
+  const [className, setClassName] = useState('');
+  const [value, setValue] = useState(0.00);
+
+  /**
+   * Handle validation
+   */
+  const handleOnValueChange = value => {
+
+    if (!value) {
+      setClassName('');
+      setValue('');
+      return;
+    }
+
+    if (Number.isNaN(Number(value))) {
+      setErrorMessage('Please enter a valid number');
+      setClassName('is-invalid');
+      return;
+    }
+
+    if (Number(value) > limit) {
+      setErrorMessage(`Max: ${prefix}${limit}`);
+      setClassName('is-invalid');
+      setValue(value);
+      return;
+    }
+
+    setClassName('is-valid');
+    setValue(value);
+  };
+
   const handleSelectDate = date => {
-    setDate(date);
+    setDate(new Date(date));
     console.log(date);
   }
 
@@ -21,10 +56,6 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
 
   const onChangeCategoryId = value => {
     setCategoryId(Number(value));
-  }
-
-  const onChangeAmount = event => {
-    setAmount(Number(event.target.value));
   }
 
   const onChangeDescription = event => {
@@ -59,7 +90,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
       <div className='modal-container'>
         <button className='close' onClick={onClose}>close</button>
         <ul className='category-grid'>
-          {categories.map(category => <li key={category.id} onClick={() => onChangeCategoryId(category.id)}>
+          {categories.map(category => <li className={category.id === categoryId ? 'selected' : ''} key={category.id} onClick={() => onChangeCategoryId(category.id)}>
             <img src={category.icon_url} alt={category.name} />
             <span>
               {category.name}
@@ -68,14 +99,25 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
         </ul>
         <div className='modal-input'>
           <label htmlFor="for">Amount</label>
-          <input type="number" step="any" required value={amount} onChange={onChangeAmount}/>
+          <CurrencyInput
+                id="validationCustom01"
+                name="input-1"
+                className={`form-control`}
+                value={value}
+                onValueChange={handleOnValueChange}
+                placeholder="Please enter a number"
+                prefix={prefix}
+                step={1}
+                decimalScale={2}
+              />
+              <div className={`invalid-feedback ${className}`}>{errorMessage}</div>
           <DatePicker selected={date} onChange={date => handleSelectDate(date)}/>
           <label htmlFor="for">Description(optional)</label>
           <input type="text" required value={description} onChange={onChangeDescription}/>
         </div>
         <div className='content'></div>
         <button className='submit-expense' onClick={() => {
-          onSubmitExpense(userId, categoryId, amount, description, date)
+          onSubmitExpense(userId, categoryId, value, description, date)
           }
         }>
           Ok

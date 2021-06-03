@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Line as LineChart } from 'react-chartjs-2';
+import { dayMonthYear } from '../../utils';
 
 const Chart = ({ expenses }) => {
 
@@ -36,8 +37,7 @@ const Chart = ({ expenses }) => {
   useEffect(() => {
     let dict = {}
     expenses.forEach(expense => {
-      const dateObj = new Date(expense.date);
-      const date = (dateObj.getMonth() + 1) + '/' + dateObj.getFullYear();
+      const date = dayMonthYear(expense.date);
 
       if(dict[date]) {
         dict[date] += Number(expense.amount)

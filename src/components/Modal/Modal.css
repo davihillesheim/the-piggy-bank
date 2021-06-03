@@ -76,6 +76,10 @@
     font-size: 14px;
 }
 
+.category-grid li.selected {
+  background: blue;
+}
+
 .category-grid li img {
   height: 24px;
 }
@@ -93,4 +97,13 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-  
+
+.invalid-feedback {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+
+.is-invalid {
+  display: block;
+}

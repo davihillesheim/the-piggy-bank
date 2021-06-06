@@ -8,6 +8,7 @@ import ExpenseList from '../ExpenseList';
 import Chart from '../Chart';
 import DatePicker from 'react-datepicker';
 import { getLastDayOfMonth } from '../../utils';
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -15,6 +16,12 @@ const Dashboard = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [total, setTotal] = useState(0);
+  const history = useHistory();
+
+  const logout = () => {
+    localStorage.removeItem('loggedUser');
+    history.push('/');
+  }
 
 
   useEffect(() => {
@@ -55,6 +62,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h1>Dashboard</h1>
+      <p className='logout-button' onClick={() => logout()}>Logout</p>
       <div className="metrics">
         <DashboardMetric title={"Expenses"} value={total.toFixed(2)} />
       </div>

@@ -16,6 +16,12 @@ const Signin = () => {
     setPassword(event.target.value);
   }
 
+  useEffect(() => {
+    if(localStorage.getItem('loggedUser')) {
+      history.push('/dashboard');
+    }
+  }, [])
+
   const onSubmitSignin = () => {
     fetch('http://localhost:3001/signin', {
       method: 'post',

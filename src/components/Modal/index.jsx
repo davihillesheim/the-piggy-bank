@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import CurrencyInput from 'react-currency-input-field';
 import './Modal.css';
@@ -64,7 +64,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
   const onSubmitExpense = (userId, categoryId, amount, description, date) => {
     fetch('http://localhost:3001/expenses', {
       method: 'post',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user_id: userId,
         category_id: categoryId,
@@ -73,8 +73,8 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
         date: date
       })
     }).then(response => response.json()).then(expense => {
-      if(expense.id) {
-        addExpense({expense})
+      if (expense.id) {
+        addExpense({ expense })
       } else {
         console.log('Failed to create expense');
       }
@@ -86,35 +86,40 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
       <div className='modal-container'>
         <button className='close' onClick={onClose}>close</button>
         <ul className='category-grid'>
-          {categories.map(category => <li className={category.id === categoryId ? 'selected' : ''} key={category.id} onClick={() => onChangeCategoryId(category.id)}>
-            <img src={category.icon_url} alt={category.name} />
-            <span>
-              {category.name}
-            </span>
-          </li>)}
+          {categories.map(
+            category =>
+              <li className={category.id === categoryId ? 'selected' : ''}
+                key={category.id}
+                onClick={() => onChangeCategoryId(category.id)}
+              >
+                <img src={category.icon_url} alt={category.name} />
+                <span>
+                  {category.name}
+                </span>
+              </li>)}
         </ul>
         <div className='modal-input'>
           <label htmlFor="for">Amount</label>
           <CurrencyInput
-                id="validationCustom01"
-                name="input-1"
-                className={`form-control`}
-                value={value}
-                onValueChange={handleOnValueChange}
-                placeholder="Please enter a number"
-                prefix={prefix}
-                step={1}
-                decimalScale={2}
-              />
-              <div className={`invalid-feedback ${className}`}>{errorMessage}</div>
-          <DatePicker selected={date} onChange={date => handleSelectDate(date)}/>
+            id="validationCustom01"
+            name="input-1"
+            className={`form-control`}
+            value={value}
+            onValueChange={handleOnValueChange}
+            placeholder="Please enter a number"
+            prefix={prefix}
+            step={1}
+            decimalScale={2}
+          />
+          <div className={`invalid-feedback ${className}`}>{errorMessage}</div>
+          <DatePicker selected={date} onChange={date => handleSelectDate(date)} />
           <label htmlFor="for">Description(optional)</label>
-          <input type="text" required value={description} onChange={onChangeDescription}/>
+          <input type="text" required value={description} onChange={onChangeDescription} />
         </div>
         <div className='content'></div>
         <button className='submit-expense' onClick={() => {
           onSubmitExpense(userId, categoryId, value, description, date)
-          }
+        }
         }>
           Ok
         </button>

@@ -17,20 +17,25 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
   const [className, setClassName] = useState('');
   const [value, setValue] = useState(0.00);
 
+  const [amountValidated, setAmountValidated] = useState(false);
+  const [categoryValidated, setCategoryValidated] = useState(false);
+
   /**
-   * Handle validation
+   * Handle validation of the amount set
    */
   const handleOnValueChange = value => {
 
     if (!value) {
       setClassName('');
       setValue('');
+      setAmountValidated(false);
       return;
     }
 
     if (Number.isNaN(Number(value))) {
       setErrorMessage('Please enter a valid number');
       setClassName('is-invalid');
+      setAmountValidated(false);
       return;
     }
 
@@ -38,11 +43,13 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
       setErrorMessage(`Max: ${prefix}${limit}`);
       setClassName('is-invalid');
       setValue(value);
+      setAmountValidated(false);
       return;
     }
 
     setClassName('is-valid');
     setValue(value);
+    setAmountValidated(true);
   };
 
   const handleSelectDate = date => {
@@ -55,6 +62,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
 
   const onChangeCategoryId = value => {
     setCategoryId(Number(value));
+    setCategoryValidated(true);
   }
 
   const onChangeDescription = event => {
@@ -117,7 +125,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
           <input type="text" required value={description} onChange={onChangeDescription} />
         </div>
         <div className='content'></div>
-        <button className='submit-expense' onClick={() => {
+        <button className='submit-expense' disabled={!(amountValidated && categoryValidated)} onClick={() => {
           onSubmitExpense(userId, categoryId, value, description, date)
         }
         }>

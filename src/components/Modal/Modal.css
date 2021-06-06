@@ -35,16 +35,27 @@
 
 .submit-expense {
   background-color: transparent;
-  outline: none;
-  width: 24px;
-  height: 24px;
-  border: none;
-  right: calc(-100% + 64px);
+  right: calc(-100% + 76px);
   bottom: 0px;
-  cursor: pointer;
   display: flex;
   position: relative;
   align-items: center;
+  border-radius: 10px;
+  background: #24285b;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  top: 50px;
+}
+
+.submit-expense:hover {
+  transition: all 0.2s ease-in-out;
+  background: white;
+  color: #24285b
 }
 
 .category-grid {

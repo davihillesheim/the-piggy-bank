@@ -7,7 +7,8 @@ const Chart = ({ expenses }) => {
   const [expenseData, setExpenseData] = useState({});
 
   const sortDate = (key) => {
-    return key.sort((a, b) => new Date(a) - new Date(b));
+    const sorted = key.sort((a, b) => new Date(a) - new Date(b));
+    return sorted;
   }
 
   const chartData = canvas => {
@@ -45,7 +46,6 @@ const Chart = ({ expenses }) => {
         dict[date] = Number(expense.amount)
       }
     })
-    console.log(dict)
     setExpenseData(dict)
   }, [expenses]);
 

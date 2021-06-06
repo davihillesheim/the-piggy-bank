@@ -47,7 +47,6 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
 
   const handleSelectDate = date => {
     setDate(new Date(date));
-    console.log(date);
   }
 
   const handleOutsideClick = event => {
@@ -74,10 +73,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
         date: date
       })
     }).then(response => response.json()).then(expense => {
-      if(expense.user_id) {
-        console.log('here comes the new expense!!!!!!!!!!!')
-        console.log(expense)
-        console.log('Expense created successfully');
+      if(expense.id) {
         addExpense({expense})
       } else {
         console.log('Failed to create expense');

@@ -23,3 +23,8 @@
   flex-direction: column;
   right: 0;
 }
+
+.delete-expense {
+  align-self: flex-end;
+  width: 24px;
+}

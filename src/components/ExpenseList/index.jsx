@@ -2,9 +2,21 @@ import React from 'react';
 import './ExpenseList.css';
 import { dayMonthYear } from '../../utils';
 
-const ExpenseList = ({ expenses, categories }) => {
+const ExpenseList = ({ expenses, categories, setExpenses }) => {
 
   const sortedExpenses = expenses.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const deleteExpense = (id) => {
+    fetch('http://localhost:3001/delete-transaction', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        expense_id: parseInt(id)
+      })
+    }).then(response => response.json()).then(deleted => {
+      setExpenses(expenses.filter(x => x.id != deleted.expense_id));
+    })
+  }
 
   return (
     <ul>
@@ -21,7 +33,7 @@ const ExpenseList = ({ expenses, categories }) => {
                 </span>
               </div>
               <div className="expense-amount">
-                <span>x</span>
+                <button className="delete-expense" onClick={() => deleteExpense(expense.id)}>x</button>
                 <span>{expense.amount}</span>
               </div>
             </div>

@@ -14,6 +14,7 @@ const Dashboard = () => {
   const [categories, setCategories] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [total, setTotal] = useState(0);
 
 
   useEffect(() => {
@@ -22,7 +23,6 @@ const Dashboard = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user_id: localStorage.getItem('loggedUser'),
-        // transform the month in 01/month/year and lastDay/month/year
         not_before: startDate,
         not_after: getLastDayOfMonth(startDate)
       })
@@ -32,7 +32,7 @@ const Dashboard = () => {
         setExpenses(expenses)
       }
       );
-  }, [startDate])
+  }, [startDate, expenses])
 
   useEffect(() => {
     fetch('http://localhost:3001/categories')
@@ -44,11 +44,19 @@ const Dashboard = () => {
     setExpenses([...expenses, expense])
   })
 
+  useEffect(() => {
+    let sum = 0;
+    expenses.forEach(expense => {
+      sum += Number(expense.amount)
+    });
+    setTotal(sum);
+  }, [expenses])
+
   return (
     <div className="dashboard">
       <h1>Dashboard</h1>
       <div className="metrics">
-        <DashboardMetric title={"Expenses"} value={"$14000,00"} />
+        <DashboardMetric title={"Expenses"} value={total.toFixed(2)} />
       </div>
       <button onClick={() => setIsModalVisible(true)}>
         <FontAwesomeIcon icon={faPlusCircle} />
@@ -57,7 +65,6 @@ const Dashboard = () => {
         selected={startDate}
         onChange={(date) => { 
           setStartDate(date)
-          console.log(new Date(date.getFullYear(), date.getMonth() + 1, 0))
         }}
         dateFormat="MM/yyyy"
         showMonthYearPicker
@@ -66,7 +73,7 @@ const Dashboard = () => {
       {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories} addExpense={addExpense}></Modal>}
       <div className="dashboard-content">
         <div className="expense-list">
-          <ExpenseList expenses={expenses} categories={categories} />
+          <ExpenseList expenses={expenses} categories={categories} setExpenses={setExpenses} />
         </div>
         <div className="chart">
           <Chart expenses={expenses} />

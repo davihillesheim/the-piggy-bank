@@ -1,10 +1,12 @@
 .metric-card {
   background-color: white;
   border-radius: 5px;
-  margin: 10px;
+  margin: 10px 0 10px 0;
   padding: 4px;
   border-top: 4px solid #24285b;
   box-shadow: 2px 2px 4px #000000;
+  min-width: 10%;
+  max-width: 15%;
 }
 
 .metric-title {

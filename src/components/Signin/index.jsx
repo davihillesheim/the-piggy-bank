@@ -20,7 +20,7 @@ const Signin = () => {
     if(localStorage.getItem('loggedUser')) {
       history.push('/dashboard');
     }
-  }, [])
+  }, [history])
 
   const onSubmitSignin = () => {
     fetch('http://localhost:3001/signin', {

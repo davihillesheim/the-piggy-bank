@@ -61,30 +61,34 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <h1>Dashboard</h1>
-      <p className='logout-button' onClick={() => logout()}>Logout</p>
-      <div className="metrics">
-        <DashboardMetric title={"Expenses"} value={total.toFixed(2)} />
-      </div>
-      <button onClick={() => setIsModalVisible(true)}>
-        <FontAwesomeIcon icon={faPlusCircle} />
-      </button>
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => { 
-          setStartDate(date)
-        }}
-        dateFormat="MM/yyyy"
-        showMonthYearPicker
-        showFullMonthYearPicker
-      />
-      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories} addExpense={addExpense}></Modal>}
-      <div className="dashboard-content">
-        <div className="expense-list">
-          <ExpenseList expenses={expenses} categories={categories} setExpenses={setExpenses} />
+      <div className="dashboard-header">
+        <h1>Dashboard</h1>
+        <p className='logout-button' onClick={() => logout()}>Logout</p>
+        <div className="metrics">
+          <DashboardMetric title={"Expenses"} value={total.toFixed(2)} />
         </div>
-        <div className="chart">
-          <Chart expenses={expenses} />
+        <div className='dashboard-selectors'>
+          <button onClick={() => setIsModalVisible(true)}>
+            <FontAwesomeIcon icon={faPlusCircle} />
+          </button>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => {
+              setStartDate(date)
+            }}
+            dateFormat="MM/yyyy"
+            showMonthYearPicker
+            showFullMonthYearPicker
+          />
+        </div>
+        {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories} addExpense={addExpense}></Modal>}
+        <div className="dashboard-content">
+          <div className="expense-list">
+            <ExpenseList expenses={expenses} categories={categories} setExpenses={setExpenses} />
+          </div>
+          <div className="chart">
+            <Chart expenses={expenses} />
+          </div>
         </div>
       </div>
     </div>

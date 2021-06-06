@@ -39,7 +39,7 @@ const Dashboard = () => {
         setExpenses(expenses)
       }
       );
-  }, [startDate, expenses])
+  }, [startDate])
 
   useEffect(() => {
     fetch('http://localhost:3001/categories')

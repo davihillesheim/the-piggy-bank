@@ -63,9 +63,16 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="dashboard-header">
         <h1>Dashboard</h1>
-        <p className='logout-button' onClick={() => logout()}>Logout</p>
+        <p
+          className='logout-button'
+          onClick={() => logout()}>
+          Logout
+          </p>
         <div className="metrics">
-          <DashboardMetric title={"Expenses"} value={total.toFixed(2)} />
+          <DashboardMetric
+            title={"Expenses"}
+            value={total.toFixed(2)}
+          />
         </div>
         <div className='dashboard-selectors'>
           <button onClick={() => setIsModalVisible(true)}>
@@ -81,10 +88,18 @@ const Dashboard = () => {
             showFullMonthYearPicker
           />
         </div>
-        {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} categories={categories} addExpense={addExpense}></Modal>}
+        {isModalVisible &&
+          <Modal onClose={() => setIsModalVisible(false)}
+            categories={categories}
+            addExpense={addExpense}>
+          </Modal>}
         <div className="dashboard-content">
           <div className="expense-list">
-            <ExpenseList expenses={expenses} categories={categories} setExpenses={setExpenses} />
+            <ExpenseList
+              expenses={expenses}
+              categories={categories}
+              setExpenses={setExpenses}
+            />
           </div>
           <div className="chart">
             <Chart expenses={expenses} />

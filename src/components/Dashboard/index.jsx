@@ -6,6 +6,7 @@ import ExpenseList from '../ExpenseList';
 import Chart from '../Chart';
 import DatePicker from 'react-datepicker';
 import { useHistory } from "react-router-dom";
+import CookieConsent from "react-cookie-consent";
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -116,6 +117,10 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <CookieConsent 
+        expires={1}
+      >
+        This website uses cookies to enhance the user experience.</CookieConsent>
     </div>
   )
 }

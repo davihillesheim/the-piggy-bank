@@ -8,7 +8,6 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
   const userId = Number(localStorage.getItem('loggedUser'));
   const [categoryId, setCategoryId] = useState();
   const [date, setDate] = useState(new Date());
-  const [description, setDescription] = useState('');
 
   const limit = 10000;
   const prefix = '£';
@@ -65,11 +64,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
     setCategoryValidated(true);
   }
 
-  const onChangeDescription = event => {
-    setDescription(event.target.value);
-  }
-
-  const onSubmitExpense = (userId, categoryId, amount, description, date) => {
+  const onSubmitExpense = (userId, categoryId, amount, date) => {
     fetch('http://localhost:3001/expenses', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -77,7 +72,6 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
         user_id: userId,
         category_id: categoryId,
         amount: amount,
-        description: description,
         date: date
       })
     }).then(response => response.json()).then(expense => {
@@ -124,7 +118,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
         </div>
         <div className='content'></div>
         <button className='submit-expense' disabled={!(amountValidated && categoryValidated)} onClick={() => {
-          onSubmitExpense(userId, categoryId, value, description, date)
+          onSubmitExpense(userId, categoryId, value, date)
         }
         }>
           Ok

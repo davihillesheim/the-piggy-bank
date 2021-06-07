@@ -1,10 +1,40 @@
 .dashboard {
-  padding: 16px;
   background-color: #f3f3f3;
   height: 100vh;
 }
 
-.dashboard-header {
+.dashboard-nav {
+  background: #000;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: white;
+}
+
+.logout-button {
+  border-radius: 10px;
+  background: #24285b;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: white;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transform: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.dashboard-nav > .navbar-container {
+  align-items: center;
+}
+
+.dashboard-wrapper {
   width: 80%;
   margin: 16px auto auto auto;
 }
@@ -26,6 +56,7 @@
 
 .expense-list {
   width: 100%;
+  min-height: 35vh;
   max-height: 70vh;
   overflow: auto;
   padding-top: 16px;
@@ -40,4 +71,38 @@
   padding-left: 16px;
   padding-top: 16px;
   margin-right: 16px;
+}
+
+.dashboard-selectors {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-expense {
+  font-size: 16px;
+  width: fit-content;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #24285b;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: white;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transform: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.add-expense:hover, .logout-button:hover {
+  transition: all 0.2s ease-in-out;
+  background: white;
+  color: #24285b
+}
+
+.date-picker {
+  font-size: 16px;
+  text-align: center;
+  width: fit-content;
 }

@@ -21,7 +21,7 @@ const Chart = ({ expenses }) => {
       250
     );
     gradientFill.addColorStop(0, 'rgba(0, 97, 215, 0.3)');
-    gradientFill.addColorStop(1, 'rgba(0, 200, 255, 0)');
+    gradientFill.addColorStop(1, 'rgba(36, 40, 91, 1)');
     return {
       labels: sortDate(key).map(date => date),
       datasets: [

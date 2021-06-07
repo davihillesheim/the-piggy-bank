@@ -61,13 +61,18 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div className="dashboard-header">
-        <h1>Dashboard</h1>
-        <p
-          className='logout-button'
-          onClick={() => logout()}>
-          Logout
+      {/* here will be the navbar with the logout button and maybe the dashboard written on it, so the header might be transformed in the navbar*/}
+      <div className="dashboard-nav">
+        <div className="navbar-container">
+          <h1>Dashboard</h1>
+          <p
+            className='logout-button'
+            onClick={() => logout()}>
+            Logout
           </p>
+        </div>
+      </div>
+      <div className="dashboard-wrapper">
         <div className="metrics">
           <DashboardMetric
             title={"Expenses"}
@@ -75,10 +80,11 @@ const Dashboard = () => {
           />
         </div>
         <div className='dashboard-selectors'>
-          <button onClick={() => setIsModalVisible(true)}>
-            <FontAwesomeIcon icon={faPlusCircle} />
+          <button className='add-expense' onClick={() => setIsModalVisible(true)}>
+            Add Expense
           </button>
           <DatePicker
+            className="date-picker"
             selected={startDate}
             onChange={(date) => {
               setStartDate(date)
@@ -92,7 +98,8 @@ const Dashboard = () => {
           <Modal onClose={() => setIsModalVisible(false)}
             categories={categories}
             addExpense={addExpense}>
-          </Modal>}
+          </Modal>
+        }
         <div className="dashboard-content">
           <div className="expense-list">
             <ExpenseList

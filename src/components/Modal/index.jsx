@@ -120,7 +120,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
             decimalScale={2}
           />
           <div className={`invalid-feedback ${className}`}>{errorMessage}</div>
-          <DatePicker selected={date} onChange={date => handleSelectDate(date)} />
+          <DatePicker selected={date} dateFormat="dd/MM/yyyy" onChange={date => handleSelectDate(date)} />
           <label htmlFor="for">Description(optional)</label>
           <input type="text" required value={description} onChange={onChangeDescription} />
         </div>

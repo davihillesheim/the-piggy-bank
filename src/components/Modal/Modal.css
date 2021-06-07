@@ -117,6 +117,16 @@
   display: block;
 }
 
+.category-invalid {
+  padding-left: 16px;
+  font-size: 12px;
+  color: red;
+}
+
+.category-valid {
+  display: none;
+}
+
 @media screen and (max-width: 1080px) {
   .modal-container {
     width: 40%;

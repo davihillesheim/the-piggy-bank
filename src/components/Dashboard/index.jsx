@@ -5,7 +5,6 @@ import Modal from '../Modal';
 import ExpenseList from '../ExpenseList';
 import Chart from '../Chart';
 import DatePicker from 'react-datepicker';
-import { getLastDayOfMonth, getFirstDayOfMonth } from '../../utils';
 import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {

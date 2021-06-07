@@ -100,6 +100,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
                 </span>
               </li>)}
         </ul>
+        <p className={categoryValidated ? 'category-valid' : 'category-invalid'}>Select a category</p>
         <div className='modal-input'>
           <label htmlFor="for">Amount</label>
           <CurrencyInput

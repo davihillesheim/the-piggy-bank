@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import DashboardMetric from '../DashboardMetric';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../Modal';
 import ExpenseList from '../ExpenseList';
 import Chart from '../Chart';
@@ -23,6 +21,12 @@ const Dashboard = () => {
     history.push('/');
   }
 
+  const sortByDate = (expenseList) => {
+    return expenseList.filter(expense => {
+      const checkDate = new Date(expense.date)
+      return (checkDate.getMonth() === startDate.getMonth())
+    })
+  }
 
   useEffect(() => {
     fetch('http://localhost:3001/expenses/user', {
@@ -30,8 +34,6 @@ const Dashboard = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user_id: localStorage.getItem('loggedUser'),
-        not_before: getFirstDayOfMonth(startDate),
-        not_after: getLastDayOfMonth(startDate)
       })
     })
       .then(response => response.json())
@@ -39,7 +41,7 @@ const Dashboard = () => {
         setExpenses(expenses)
       }
       );
-  }, [startDate])
+  }, [])
 
   useEffect(() => {
     fetch('http://localhost:3001/categories')
@@ -54,10 +56,12 @@ const Dashboard = () => {
   useEffect(() => {
     let sum = 0;
     expenses.forEach(expense => {
-      sum += Number(expense.amount)
+      const checkDate = new Date(expense.date)
+      if(checkDate.getMonth() === startDate.getMonth())
+        sum += Number(expense.amount)
     });
     setTotal(sum);
-  }, [expenses])
+  }, [expenses, startDate])
 
   return (
     <div className="dashboard">
@@ -103,13 +107,13 @@ const Dashboard = () => {
         <div className="dashboard-content">
           <div className="expense-list">
             <ExpenseList
-              expenses={expenses}
+              expenses={sortByDate(expenses)}
               categories={categories}
               setExpenses={setExpenses}
             />
           </div>
           <div className="chart">
-            <Chart expenses={expenses} />
+            <Chart expenses={sortByDate(expenses)} />
           </div>
         </div>
       </div>

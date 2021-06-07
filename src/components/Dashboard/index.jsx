@@ -7,7 +7,7 @@ import Modal from '../Modal';
 import ExpenseList from '../ExpenseList';
 import Chart from '../Chart';
 import DatePicker from 'react-datepicker';
-import { getLastDayOfMonth } from '../../utils';
+import { getLastDayOfMonth, getFirstDayOfMonth } from '../../utils';
 import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
@@ -30,7 +30,7 @@ const Dashboard = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user_id: localStorage.getItem('loggedUser'),
-        not_before: startDate,
+        not_before: getFirstDayOfMonth(startDate),
         not_after: getLastDayOfMonth(startDate)
       })
     })

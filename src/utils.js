@@ -11,3 +11,5 @@ export const dayMonthYear = date => {
 }
 
 export const getLastDayOfMonth = date => new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+export const getFirstDayOfMonth = date => new Date(date.getFullYear(), date.getMonth(), 1);

@@ -14,8 +14,7 @@
 .modal-container {
   background-color: white;
   color: black;
-  width: 25%;
-  height: 80%;
+  width: 23%;
   border-radius: 10px;
 }
 
@@ -36,7 +35,7 @@
 .submit-expense {
   background-color: transparent;
   right: calc(-100% + 76px);
-  bottom: 0px;
+  bottom: 5px;
   display: flex;
   position: relative;
   align-items: center;
@@ -49,7 +48,6 @@
   border: none;
   cursor: pointer;
   text-decoration: none;
-  top: 50px;
 }
 
 .submit-expense:hover {
@@ -117,4 +115,24 @@
 
 .is-invalid {
   display: block;
+}
+
+@media screen and (max-width: 1080px) {
+  .modal-container {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .modal-container {
+    width: 65%;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-container {
+    width: 100%;
+    overflow: auto;
+  }
 }

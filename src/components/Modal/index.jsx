@@ -121,8 +121,6 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
           />
           <div className={`invalid-feedback ${className}`}>{errorMessage}</div>
           <DatePicker selected={date} dateFormat="dd/MM/yyyy" onChange={date => handleSelectDate(date)} />
-          <label htmlFor="for">Description(optional)</label>
-          <input type="text" required value={description} onChange={onChangeDescription} />
         </div>
         <div className='content'></div>
         <button className='submit-expense' disabled={!(amountValidated && categoryValidated)} onClick={() => {

@@ -106,3 +106,9 @@
   text-align: center;
   width: fit-content;
 }
+
+@media screen and (max-width: 1080px) {
+  .dashboard-content {
+    flex-direction: column-reverse
+  }
+}

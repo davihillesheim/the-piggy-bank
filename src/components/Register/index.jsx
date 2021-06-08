@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../Signin/Signin.css";
 import "./Register.css";
@@ -17,7 +17,8 @@ const Register = () => {
 
   const isDisabled = () => {
     const validator = (nameError.length > 0 && emailError.length > 0 && passwordError.length > 0);
-    return validator;
+    const passwordValidator = (password.length === 0)
+    return validator && passwordValidator;
   }
 
   const onChangeName = event => {
@@ -67,8 +68,6 @@ const Register = () => {
     .then(user => {
       if (user) {
         history.push("/");
-      } else {
-        console.log('didn\'t work');
       }
     })
   }

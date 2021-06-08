@@ -1,0 +1,35 @@
+.name {
+  display: none;
+}
+
+.name-invalid {
+  display: block;
+  color: red;
+  font-size: 10px;
+  padding-bottom: 5px;
+  margin-top: -10px;
+}
+
+.email {
+  display: none;
+}
+
+.email-invalid {
+  display: block;
+  color: red;
+  font-size: 10px;
+  padding-bottom: 5px;
+  margin-top: -10px;
+}
+
+.password {
+  display: none;
+}
+
+.password-invalid {
+  display: block;
+  color: red;
+  font-size: 10px;
+  padding-bottom: 5px;
+  margin-top: -10px;
+}

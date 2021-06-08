@@ -24,7 +24,7 @@ const Modal = ({ id = 'modal', onClose = () => { }, categories, addExpense }) =>
    */
   const handleOnValueChange = value => {
 
-    if (!value) {
+    if (!value || value > 10000) {
       setClassName('');
       setValue('');
       setAmountValidated(false);

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import {FaInstagram} from 'react-icons/fa';
 import { Link as LinkRouter } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 
@@ -34,9 +35,21 @@ const Footer = () => {
           </div>
           <div className="footer-links">
             <h1 className="link-title">Get Started</h1>
-            <LinkRouter className="footer-link" to="/signin">
+            <LinkRouter className="footer-link" to="instagram.com/thepiggybank2">
               Sign In
             </LinkRouter>
+          </div>
+          <div className="footer-links">
+            <h1 className="link-title">Social Media</h1>
+            <a
+              className='social-icon-link'
+              target="_blank" 
+              rel="noopener noreferrer" 
+              href="https://instagram.com/thepiggybank2"
+              aria-label='Instagram'
+            >
+              <FaInstagram />
+            </a>
           </div>
         </div>
         <div className="copyrights">

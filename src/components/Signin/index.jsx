@@ -6,6 +6,8 @@ const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [wrongCredentials, setWrongCredentials] = useState('credentials');
+
   const history = useHistory();
 
   const onChangeEmail = event => {
@@ -38,7 +40,7 @@ const Signin = () => {
         localStorage.setItem('loggedUser', id);
         history.push("/dashboard");
       } else {
-        console.log('didn\'t work');
+        setWrongCredentials('wrong-credentials');
       }
     })
   }
@@ -62,6 +64,7 @@ const Signin = () => {
               Password
             </label>
             <input className="form-input" type="password" required value={password} onChange={onChangePassword}/>
+            <p className={wrongCredentials}>Incorrect email and/or password.</p>
             <button className="form-button" type="button" onClick={onSubmitSignin}>
               Login
             </button>

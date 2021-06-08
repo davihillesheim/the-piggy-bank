@@ -90,6 +90,18 @@
   font-size: 14px;
 }
 
+.credentials {
+  display: none;
+}
+
+.wrong-credentials {
+  display: block;
+  color: red;
+  font-size: 10px;
+  padding-bottom: 5px;
+  margin-top: -10px;
+}
+
 @media screen and (max-width: 480px) {
   .form-container {
     height: 80%;
